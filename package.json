@@ -6,6 +6,10 @@
     "dev": "nodemon ./src/bin/www --exec babel-node --presets-env",
     "start": "nodemon ./src/bin/www --exec babel-node --presets-env",
     "server": "babel-node ./src/bin/www",
+    "migrate:run": "npx sequelize-cli db:migrate",
+    "migrate:generate": "npx sequelize-cli seed:generate --name",
+    "seed:run": "npx sequelize-cli db:seed:all",
+    "seed:undo:all": "npx sequelize-cli db:seed:undo:all",
     "build": "babel -d ./build/src ./src && babel -d ./build/database/models ./database/models",
     "prod": "npm run build && node build/src/bin/www"
   },
@@ -20,6 +24,7 @@
     "morgan": "~1.9.1",
     "node-geocoder": "^3.27.0",
     "nodemailer": "^6.6.3",
+    "nodemon": "^3.1.4",
     "pg": "^8.3.2",
     "sequelize": "^6.3.4"
   },
